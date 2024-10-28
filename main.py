@@ -37,6 +37,10 @@ def main():
             if player.check_collision(obj):
                 print("Game Over!")
                 sys.exit()
+            for bullet in shots:
+                if obj.check_collision(bullet):
+                    obj.split()
+                    bullet.kill()
         pygame.Surface.fill(screen, color=(0,0,0))
         for obj in drawable:
             obj.draw(screen)
